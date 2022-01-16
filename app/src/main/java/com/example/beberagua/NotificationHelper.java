@@ -7,8 +7,6 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Vibrator;
-
-
 import androidx.core.app.NotificationCompat;
 
 public class NotificationHelper extends ContextWrapper {
@@ -38,7 +36,6 @@ public class NotificationHelper extends ContextWrapper {
         }
         return mManager;
     }
-
     public NotificationCompat.Builder getChannel1Notification(String title, String message){
         return new NotificationCompat.Builder(getApplicationContext(),channel1id)
                 .setContentTitle(title)

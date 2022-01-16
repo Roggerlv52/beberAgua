@@ -2,7 +2,6 @@ package com.example.beberagua;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
@@ -10,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.os.Vibrator;
 import android.widget.Button;
 import android.widget.TextView;
@@ -78,6 +78,16 @@ public class MainActivity extends AppCompatActivity  implements TimePickerDialog
                     editor.putInt("hora", Hora);
                     editor.putInt("minuto", Minuto);
                     editor.apply();
+
+                    Intent notificationIntent = new Intent(MainActivity.this, NotificationPublish.class);
+                    notificationIntent.putExtra(NotificationPublish.KEY_NOTIFICATION_ID,1);
+                    notificationIntent.putExtra(NotificationPublish.KEY_NOTIFICATION,"Hora de beber agua");
+                    PendingIntent broadcast = PendingIntent.getBroadcast(MainActivity.this, 0, notificationIntent,
+                            PendingIntent.FLAG_UPDATE_CURRENT);
+                    Long futureInMillis = SystemClock.elapsedRealtime() + (intervalo * 1000);
+
+                   AlarmManager  alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                   alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,futureInMillis,broadcast);
 
                 } else {
 

@@ -35,7 +35,8 @@ public class NotificationPublish extends BroadcastReceiver {
                 .setTicker("Alerta")
                 .setContentIntent(intent)
                 .setAutoCancel(false)
-                .setSmallIcon(R.mipmap.ic_launcher);
+                .setSmallIcon(R.drawable.ic_notification_important);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             String channelid = "YOUR_CHANNEL_ID";
             NotificationChannel channel = new NotificationChannel(channelid,
@@ -45,4 +46,5 @@ public class NotificationPublish extends BroadcastReceiver {
         }
         return builder.build();
     }
+
 }

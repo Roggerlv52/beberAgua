@@ -4,4 +4,7 @@
     <string name="btn_enviar">Enviar</string>
     <string name="erro_msg">Precisa digitar o intervalo</string>
     <string name="msg_texto">Pausa</string>
+    <string name="Zero_zero">O campo de ser maior que zero!</string>
+    <string name="notifildy">Alarme ativado</string>
+    <string name="Notifica">Alarme desativado!</string>
 </resources>

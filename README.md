@@ -1,3 +1,3 @@
-# beberAgua
+# beber água 
 Projeto beber Água 
-* Notificação de intervalo 
+* Notificação de intervalo
